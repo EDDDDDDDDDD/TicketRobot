@@ -71,8 +71,13 @@ search = WebDriverWait(driver, 10).until(
 """
 
 driver.find_element(By.XPATH, '//*[@id=\"select_store\"]').click()
+ActionChains(driver).scroll_by_amount(0, 300).perform()
+locator = (By.XPATH, ".//*[@rel=\"旭集信義店\"]")
+search = WebDriverWait(driver, 10).until(
+	EC.visibility_of_element_located(locator)
+)
 driver.find_element(By.XPATH, './/*[@rel=\"旭集信義店\"]').click() # Store Name
-ActionChains(driver).scroll_by_amount(0, 500).perform()
+ActionChains(driver).scroll_by_amount(0, 200).perform()
 driver.find_element(By.XPATH, './/*[@data-col-date=\'2022-09-05\']').click() # Change date YYYY-MM-DD
 
 # When is the meal?
@@ -93,3 +98,12 @@ ActionChains(driver).move_to_element(submit).click(submit).perform()
 
 
 print("COMPLETED!")
+
+"""
+locator = (By.LINK_TEXT, "分桌")
+search = WebDriverWait(driver, 10).until(
+	EC.visibility_of_element_located(locator)
+)
+driver.find_element("link text", '我知道了').click()
+date = driver.find_element(By.XPATH, "/html/body/div[4]/div/div/div/ul/li[3]/div/input")
+"""
