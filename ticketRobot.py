@@ -181,4 +181,5 @@ def main():
     start = StartTime(0, 19, 00, 30, 0)  #nextDays, hr, min, sec, msec
     start.exe(heaven)
     
-main()
+if __name__ == '__main__':
+    main()
